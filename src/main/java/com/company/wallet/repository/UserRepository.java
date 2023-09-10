@@ -1,0 +1,10 @@
+package com.company.wallet.repository;
+
+import com.company.wallet.entities.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+    @Query("SELECT u FROM User u WHERE u.userId = ?1")
+    public User findByUserId(String userId);
+}
